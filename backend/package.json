@@ -1,7 +1,7 @@
 {
-    "name": "fortune-bookstore-backend",
+    "name": "",
     "version": "0.0.1",
-    "author": "Fabian Habil (https://github.com/fabianhabil)",
+    "author": "",
     "license": "MIT",
     "scripts": {
         "dev": "cross-env NODE_ENV=development ts-node ./src/server.ts",
