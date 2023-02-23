@@ -5,7 +5,7 @@ import { Errors } from '../utils/api.util';
 @Service()
 export class UserService {
     async getProfile(userId: number): Promise<User | null> {
-        const user = User.findOne({
+        const user = await User.findOne({
             where: { userId },
             select: { password: false }
         });
