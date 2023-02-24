@@ -1,0 +1,39 @@
+.navBarBackground{
+    background: white;
+}
+
+.NavbarText{
+    display: inline-flex;
+    padding: 30px;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.textSkuy{
+    color: orange;
+}
+
+.link{
+    color: grey;
+    margin-left: 48px;
+    font-size: 26px;
+    text-decoration: none;
+}
+
+.loginButton{
+    background: #FFB800;
+    font-size: 20px;
+    padding: 8px;
+    width: 96px;
+    border-radius: 8px;
+    border: none;
+}
+
+.loginButtonWrapper{
+    display: inline-flex;
+    /* float: right; */
+    right: auto;
+}
