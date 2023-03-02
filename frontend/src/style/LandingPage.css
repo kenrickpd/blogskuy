@@ -1,5 +1,6 @@
 .navBarBackground{
     background: white;
+    display: flex;
 }
 
 .NavbarText{
@@ -9,7 +10,7 @@
 
 .title{
     font-size: 30px;
-    font-weight: bolder;
+    font-weight: thin;
 }
 
 .textSkuy{
@@ -34,6 +35,11 @@
 
 .loginButtonWrapper{
     display: inline-flex;
-    /* float: right; */
-    right: auto;
+    padding-right: 100px;
+    position: absolute;
+    right: 0;
+}
+
+p{
+    padding-left: 30px;   
 }
