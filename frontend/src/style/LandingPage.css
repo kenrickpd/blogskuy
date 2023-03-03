@@ -9,7 +9,7 @@
 }
 
 .title{
-    font-size: 30px;
+    font-size: 48px;
     font-weight: thin;
 }
 
@@ -20,15 +20,15 @@
 .link{
     color: grey;
     margin-left: 48px;
-    font-size: 26px;
+    font-size: 32px;
     text-decoration: none;
 }
 
 .loginButton{
     background: #FFB800;
-    font-size: 20px;
+    font-size: 32px;
     padding: 8px;
-    width: 96px;
+    width: 148px;
     border-radius: 8px;
     border: none;
 }
@@ -42,4 +42,9 @@
 
 p{
     padding-left: 30px;   
+}
+
+img{
+    display: inline-flex;
+    
 }
