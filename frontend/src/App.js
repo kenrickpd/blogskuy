@@ -1,16 +1,18 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./LoginPage";
+import LandingPage from "./LandingPage";
 
-const App = () =>{
+function App() {
     return(
-        <>
-        <Router>
-            <Switch>
-                <Route path="/LoginPage" exact>
-                    <LoginPage />
-                </Route>
-            </Switch>
-        </Router>
-        </>
+        <div>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                </Routes>
+            </Router>
+        </div>
     );
 }
+
+export default App;

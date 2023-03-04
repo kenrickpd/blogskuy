@@ -1,19 +1,17 @@
+import React from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
+import { Navigate } from 'react-router-dom';
 import './style/LandingPage.css';
 import logo from './assets/Saly-38.png';
 import LoginPage from "./LoginPage";
-import {Link} from 'react-router-dom';
-
 
 function LandingPage() {
+  const [goToLogin, setGoToLogin] = React.useState(false);
 
-  // KENEH ERROR AING CAN NGARTI KUMAHA CARANA NGADIRECT PAGE!!!
-  const navigate = useNavigate();
-  
-  const navigateToLogin = () => {
-      navigate('/Login');
-  };
-  
+  if (goToLogin){
+    return <Navigate to="/LoginPage" />
+  }
+
   return (
     <div>
       <div className="navBarBackground">
@@ -22,7 +20,8 @@ function LandingPage() {
                 <Navbar.Brand className="title">Blog<span className="textSkuy">skuy</span></Navbar.Brand>
                     <Nav.Link className="link">Blog</Nav.Link>
                     <div className="loginButtonWrapper">
-                        <Button className="loginButton" onClick={navigateToLogin}>Login</Button>
+                        <Button className="loginButton" 
+                        onClick={() => {setGoToLogin(true)}}>Login</Button>
                     </div>
             </Container>
         </Navbar>
