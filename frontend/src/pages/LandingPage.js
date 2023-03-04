@@ -1,9 +1,9 @@
 import React from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import { Navigate } from 'react-router-dom';
-import './style/LandingPage.css';
-import logo from './assets/Saly-38.png';
-import LoginPage from "./LoginPage";
+import '../style/LandingPage.css';
+import logo from '../assets/Saly-38.png';
+// import LoginPage from "./pages/LoginPage";
 
 function LandingPage() {
   const [goToLogin, setGoToLogin] = React.useState(false);

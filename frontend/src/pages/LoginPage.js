@@ -1,6 +1,6 @@
 import { Navbar, Button, NavbarBrand, Form } from "react-bootstrap";
-import logo from './assets/Saly-38.png';
-import './style/LoginPage.css';
+import logo from '../assets/Saly-38.png';
+import '../style/LoginPage.css';
 
 function LoginPage() {
     return(
