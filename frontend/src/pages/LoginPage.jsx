@@ -1,119 +1,135 @@
 import { Navbar, Button, NavbarBrand, Form } from "react-bootstrap";
-import logo from '../assets/Saly-38.png';
+import { useState} from 'react';
+import logo from "../assets/Saly-38.png";
 
 function LoginPage() {
-    return(
-        <div 
-            style={{
-                justifyContent:"center", 
-                textAlign: "center"
-                }}
+    const [isHover, setIsHover] = useState(false);
+
+    const handleMouseEnter = () => {
+        setIsHover(true)
+    }
+
+    const handleMouseLeave = () => {
+        setIsHover(false);
+    }
+
+    const buttonStyling = {
+        background: isHover ? "black" : "#303030",
+        cursor: "pointer",
+        color: "white",
+        padding: "8px",
+        width: "300px",
+        height: "40px",
+        borderRadius: "8px",
+        border: "0px",
+        fontSize: "20px"
+    }
+
+
+  return (
+    <div className="container"
+      style={{
+        justifyContent: "center",
+        textAlign: "center",
+      }}
+    >
+      <div className="navbar">
+        <Navbar
+          style={{
+            fontSize: "48px",
+            textAlign: "center",
+            padding: "98px",
+          }}
+        >
+          <NavbarBrand>Blogskuy Login</NavbarBrand>
+        </Navbar>
+      </div>
+
+      <div className="loginContainer"
+        style={{
+          display: "inline-flex"
+        }}
+      >
+        <div className="imageContainer"
+          style={{
+            display: "inline-flex",
+            width: "50%",
+            float: "left"
+          }}
+        >
+          <img src={logo} alt="saly" />
+        </div>
+
+        <div className="formContainer"
+          style={{
+            width: "50%",
+            float: "right",
+          }}
+        >
+          <Form.Group className="emailInput">
+            <Form.Label
+              style={{
+                fontSize: "20px",
+              }}
             >
+              Email
+            </Form.Label>
 
-            <div>
-                <Navbar 
-                    style={{
-                        fontSize: "48px",
-                        textAlign: "center",
-                        padding: "98px"
-                    }}
-                >
-                    <NavbarBrand>
-                        Blogskuy Login
-                    </NavbarBrand>
-                </Navbar>
-            </div>
+            <br />
 
-            <div 
-                style={{
-                    display:"inline-flex",
-                    boxSizing: "border-box"
-                    }}
-                >
-                
-                <div 
-                    style={{
-                        display: "inline-flex", 
-                        width: "50%", 
-                        float:"left"
-                        }}
-                    >
-                    
-                    <img src={logo} alt="saly"/>
-                </div>
+            <Form.Control
+              type="email"
+              style={{
+                width: "300px",
+                height: "32px",
+                borderRadius: "4px",
+                background: "#C4C4C4",
+                border: "0px",
+              }}
+            />
+          </Form.Group>
 
-                <div 
-                    style={{
-                        width: "50%", 
-                        float:"right"
-                        }}
-                    >
-                    
-                    <Form.Group>
-                        <Form.Label 
-                            style={{
-                            fontSize: "20px"
-                            }}
-                        >Email</Form.Label>
-                        
-                        <br></br>
+          <Form.Group className="passwordInput">
+            <Form.Label
+              style={{
+                fontSize: "20px",
+              }}
+            >
+              Password
+            </Form.Label>
 
-                        <Form.Control 
-                            type="email" 
-                            style={{
-                                width: "300px",
-                                height: "32px",
-                                borderRadius: "4px",
-                                background:"#C4C4C4",     
-                                border: "0px"
-                            }}
-                        />
-                    </Form.Group>
+            <br />
 
-                    <Form.Group>
-                        <Form.Label 
-                            style={{
-                                fontSize: "20px"
-                            }}
-                        >Password</Form.Label>
+            <Form.Control
+              type="password"
+              style={{
+                width: "300px",
+                height: "32px",
+                borderRadius: "4px",
+                background: "#C4C4C4",
+                border: "0px",
+              }}
+            />
+          </Form.Group>
 
-                        <br></br>
-                        
-                        <Form.Control 
-                            type="password" 
-                            style={{
-                                width: "300px",
-                                height: "32px",
-                                borderRadius: "4px",
-                                background:"#C4C4C4",     
-                                border: "0px"
-                            }}
-                        />
-                    </Form.Group>
-
-                    <div
-                        style={{
-                            paddingTop:"24px"
-                        }}
-                    >
-                        <Button 
-                            style={{
-                                    background: "black",
-                                    color: "white",
-                                    padding: "8px",
-                                    width: "300px",
-                                    height: "40px",
-                                    borderRadius: "8px",
-                                    border: "0px"
-                            }}
-                        >Login</Button>
-                    </div>
-                </div>
-
-            </div>
-
+          <div className="loginButtonWrapper"
+            style={{
+              paddingTop: "24px"
+            }}
+          >
+            <Button className="loginButton"
+              style={buttonStyling
+              }
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              Login
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
-    )
+  );
 }
 
 export default LoginPage;
