@@ -18,6 +18,9 @@ export class Blogs extends BaseEntity{
     @CreateDateColumn({ name: 'date' })
     createdAt!: Date;
 
+    @Column({name: 'id_user', select: false})
+    userId!: number;
+
     @ManyToOne(() => User, {nullable: true})
     @JoinColumn({name: 'id_user'})
     user!: User;
