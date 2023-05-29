@@ -1,5 +1,6 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { TrackingEmbed } from './embedded/tracking.embed';
+import { Blogs } from './blogs.entity';
 
 export enum UserRole{
     USER,
@@ -35,6 +36,9 @@ export class User extends BaseEntity {
 
     @Column(() => TrackingEmbed, { prefix: false })
     track!: TrackingEmbed;
+
+    @OneToMany(() => Blogs, (blogs) => blogs)
+    blogs!: Blogs[];
 
     toJSON() {
         const cloned = { ...this } as Record<string, unknown>;
