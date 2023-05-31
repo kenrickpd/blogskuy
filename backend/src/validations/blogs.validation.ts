@@ -18,6 +18,9 @@ export class BlogsDto{
 }
 
 export class EditBlogsDto{
+    @IsNumber()
+    blogsId!: number;
+
     @IsString()
     title!: string;
 
