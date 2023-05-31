@@ -41,8 +41,8 @@ export class BlogsService{
         await this.setUser(dto.userId, blog.blogsId);
     }
 
-    async updateBlog(dto: EditBlogsDto){
-        const blog = await this.getBlog(dto.blogsId);
+    async updateBlog(blogsId: number, dto: EditBlogsDto){
+        const blog = await this.getBlog(blogsId);
 
         blog.title = dto.title;
         blog.description = dto.description;
