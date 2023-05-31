@@ -24,21 +24,12 @@ export class BlogsService{
         return blog;
     }
 
-    async setUser(userId: number, blogsId: number){
-        const blog = await this.getBlog(blogsId);
-
-        blog.userId = userId;
-
-        await blog.save();
-    }
-
     async createBlog(dto: BlogsDto){
         const blog = Blogs.create({
             ...dto
         });
 
         await Blogs.save(blog);
-        await this.setUser(dto.userId, blog.blogsId);
     }
 
     async updateBlog(blogsId: number, dto: EditBlogsDto){
