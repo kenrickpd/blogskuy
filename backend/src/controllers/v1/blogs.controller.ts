@@ -1,4 +1,4 @@
-import { Body, Get, JsonController, Res } from "routing-controllers";
+import { Body, Get, JsonController, Param, Res } from "routing-controllers";
 import { Service } from "typedi";
 import { BlogsService } from "../../services/blogs.service";
 import { Response } from "express";
@@ -17,6 +17,16 @@ export class BlogsController{
         return sendResponse(res, {
             data: blogs,
             message: 'Sucessfully found all Blogs!'
+        });
+    }
+
+    @Get('/blogsId')
+    async getBlogs(@Res() res: Response, @Param('blogsId') blogsId: number){
+        const blog = await this.blogsService.getBlog(blogsId);
+
+        return sendResponse(res, {
+            data: blog,
+            message: 'successfully found one blog!'
         });
     }
 
