@@ -16,3 +16,14 @@ export class BlogsDto{
     @IsNumber()
     userId!: number;
 }
+
+export class EditBlogsDto{
+    @IsString()
+    title!: string;
+
+    @IsString()
+    description!: string;
+
+    @IsString()
+    content!: string;
+}
