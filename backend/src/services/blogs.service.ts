@@ -51,4 +51,10 @@ export class BlogsService{
         await blog.save();
     }
 
+    async deleteBlog(blogsId: number){
+        const blog = await this.getBlog(blogsId);
+
+        await Blogs.remove(blog);
+    }
+
 }

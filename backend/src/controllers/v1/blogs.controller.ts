@@ -1,4 +1,4 @@
-import { Body, Get, JsonController, Param, Patch, Post, Res } from "routing-controllers";
+import { Body, Delete, Get, JsonController, Param, Patch, Post, Res } from "routing-controllers";
 import { Service } from "typedi";
 import { BlogsService } from "../../services/blogs.service";
 import { Response } from "express";
@@ -38,11 +38,16 @@ export class BlogsController{
     }
 
     @Patch('/:blogsId')
-    async updateBlog(@Res() res: Response, @Body() dto: EditBlogsDto){
-        await this.blogsService.updateBlog(dto);
+    async updateBlog(@Res() res: Response, @Param('blogsId') blogsId: number, @Body() dto: EditBlogsDto){
+        await this.blogsService.updateBlog(blogsId, dto);
 
         return sendResponse(res, {message: 'blog successfully updated!'});
     }
 
-    
+    @Delete('/:blogsId')
+    async deleteBlog(@Res() res: Response, @Param('blogsId') blogsId: number){
+        await this.blogsService.deleteBlog(blogsId);
+
+        return sendResponse(res, {message: 'successfully deleted a blog!'});
+    }
 }
