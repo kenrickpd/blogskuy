@@ -1,4 +1,4 @@
-import { Body, Get, JsonController, Param, Res } from "routing-controllers";
+import { Body, Get, JsonController, Param, Post, Res } from "routing-controllers";
 import { Service } from "typedi";
 import { BlogsService } from "../../services/blogs.service";
 import { Response } from "express";
@@ -30,7 +30,7 @@ export class BlogsController{
         });
     }
 
-    @Get('/create')
+    @Post('/create')
     async createBlog(@Res() res: Response, @Body() dto: BlogsDto){
         await this.blogsService.createBlog(dto);
 
