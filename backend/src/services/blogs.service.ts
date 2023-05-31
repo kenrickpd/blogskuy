@@ -1,8 +1,9 @@
 import { Service } from "typedi";
 import { Blogs } from "../database/entities/blogs.entity";
-import { BlogsDto } from "../validations/blogs.validation";
+import { BlogsDto, EditBlogsDto } from "../validations/blogs.validation";
 import { UserService } from "./user.service";
 import { Errors } from "../utils/api.util";
+import { title } from "process";
 
 @Service()
 export class BlogsService{
@@ -38,6 +39,16 @@ export class BlogsService{
 
         await Blogs.save(blog);
         await this.setUser(dto.userId, blog.blogsId);
+    }
+
+    async updateBlog(dto: EditBlogsDto){
+        const blog = await this.getBlog(dto.blogsId);
+
+        blog.title = dto.title;
+        blog.description = dto.description;
+        blog.content = dto.content;
+
+        await blog.save();
     }
 
 }
