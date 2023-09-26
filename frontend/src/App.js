@@ -1,18 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoginPage from "./LoginPage";
-import LandingPage from "./pages/LandingPage";
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LandingPage from './pages/landing-page'
+import LoginPage from './pages/login-page'
 
 function App() {
-    return(
-        <div>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<LandingPage />} />
-                    <Route path="/login" element={<LoginPage />} />
-                </Routes>
-            </Router>
-        </div>
-    );
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<LandingPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
